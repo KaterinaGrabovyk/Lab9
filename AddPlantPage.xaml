@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="Lab9.AddPlantPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lab9"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <RelativePanel>
+            <StackPanel x:Name="Student" Margin="20">
+                <TextBox Text="{x:Bind ViewModel.NewPlantKind, Mode=TwoWay}" x:Name="Kind" Header= "Вид" Margin="0,14,0,0" HorizontalAlignment="Left" />
+                <TextBox Text="{x:Bind ViewModel.NewUmiviZrost, Mode=TwoWay}" x:Name="Umovi" Header="Умови зростання" PlaceholderText="Прізвище" Margin="0,14,0,0" HorizontalAlignment="Left" />
+                <TextBox Text="{x:Bind ViewModel.NewPeriodZvit, Mode=TwoWay}" x:Name="Period" Header="Період цвітіння" Margin="0,14,0,0" PlaceholderText="Група" HorizontalAlignment="Left" />
+                <TextBox Text="{x:Bind ViewModel.NewWaterNeeds, Mode=TwoWay}" x:Name="Water" Header="Потреба у воді" Margin="0,14,0,0" PlaceholderText="Рейтинг" HorizontalAlignment="Left" />
+                <TextBox Text="{x:Bind ViewModel.NewDobrivaNeeds, Mode=TwoWay}" x:Name="Dobriva" Header="Потреба у добриві" Margin="0,14,0,0" PlaceholderText="Рейтинг" HorizontalAlignment="Left" />
+            </StackPanel>
+            <StackPanel x:Name="Save" Orientation="Horizontal" RelativePanel.Below="Student">
+                <Button Content="Додати" Margin="14" Click="Button_Click" />
+                <Button Content="Очистити" Margin="4" Click="Button_Click_1" />
+            </StackPanel>
+        </RelativePanel>
+
+    </Grid>
+</Page>

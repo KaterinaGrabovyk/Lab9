@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="Lab9.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lab9"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="59,43,0,0" TextWrapping="Wrap" Text="Налаштування" VerticalAlignment="Top" FontSize="24" FontFamily="Arial Black"/>
+        <RadioButton x:Name="radioButton" HorizontalAlignment="Center" IsChecked="{x:Bind ViewModel.IsByKind, Mode=TwoWay}" Content="за видом" Margin="93,147,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton1" HorizontalAlignment="Center" IsChecked="{x:Bind ViewModel.IsByUmovi, Mode=TwoWay}" Content="за умовами зростання" Margin="93,184,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton2" HorizontalAlignment="Center" IsChecked="{x:Bind ViewModel.IsByPeriod, Mode=TwoWay}" Content="за періодом цвітіння" Margin="93,221,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="isSorted" HorizontalAlignment="Center" IsChecked="{x:Bind ViewModel.IsSorted, Mode=TwoWay}" Content="Сортувати" Margin="93,96,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>

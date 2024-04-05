@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="Lab9.PlantsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lab9"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:database="using:Lab9.DB"
+    mc:Ignorable="d"
+ 
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ListView x:Name="listView" ItemsSource="{x:Bind ViewModel.Plants, Mode=OneWay}" HorizontalAlignment="Center">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal"  >
+                        <TextBlock Text="ID" Margin="8,0" Width="50" Foreground="DarkRed" />
+                        <TextBlock Text="Вид" Width="100" Foreground="DarkRed" />
+                        <TextBlock Text="Умови зростання" Width="200" Foreground="DarkRed" />
+                        <TextBlock Text="Період цвітіння" Width="200" Foreground="DarkRed" />
+                        <TextBlock Text="Потреба у воді" Width="200" Foreground="DarkRed" />
+                        <TextBlock Text="Потреба у добриві" Width="200" Foreground="DarkRed" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="database:Plant">
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock 
+                         Text="{x:Bind Id}"
+                         Width="50" />
+                        <TextBlock 
+                         Text="{x:Bind PlantKind}"
+                         Width="100" />
+                        <TextBlock Text="{x:Bind UmoviZrost}"
+                        Width="200" />
+                        <TextBlock Text="{x:Bind PeriodCvit}"
+                        Width="200" />
+                        <TextBlock Text="{x:Bind WaterNeeds}"
+                        Width="200" />
+                        <TextBlock Text="{x:Bind DobrivaNeeds}"
+Width="200" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</Page>
