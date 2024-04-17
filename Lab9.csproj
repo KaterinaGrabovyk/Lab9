@@ -123,6 +123,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="DB\HttpClientHandlerInsecure.cs" />
     <Compile Include="DB\MainModel.cs" />
     <Compile Include="DB\Plant.cs" />
     <Compile Include="DB\PlantDBContext.cs" />
@@ -193,6 +194,9 @@
     </PackageReference>
     <PackageReference Include="Prism.Core">
       <Version>8.1.97</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Http.Json">
+      <Version>8.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

@@ -28,21 +28,21 @@ namespace Lab9
         }
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
-{
-    if (args.IsSettingsSelected)
-    {
-        sender.Header = "";
-        ContentFrame.Navigate(typeof(Settings));
-    }
-    else if (args.SelectedItemContainer != null)
-    {
-        var selectedItem = (NavigationViewItem)args.SelectedItem;
-        sender.Header = $"Сторінка {selectedItem.Content}";
-        string pageName = $"Lab9.{args.SelectedItemContainer.Tag}Page";
-        Type pageType = Type.GetType(pageName);
-        ContentFrame.Navigate(pageType);
-    }
-}
+        {
+            if (args.IsSettingsSelected)
+            {
+                sender.Header = "";
+                ContentFrame.Navigate(typeof(Settings));
+            }
+            else if (args.SelectedItemContainer != null)
+            {
+                var selectedItem = (NavigationViewItem)args.SelectedItem;
+                sender.Header = $"Сторінка {selectedItem.Content}";
+                string pageName = $"Lab9.{args.SelectedItemContainer.Tag}Page";
+                Type pageType = Type.GetType(pageName);
+                ContentFrame.Navigate(pageType);
+            }
+        }
 
     }
 }

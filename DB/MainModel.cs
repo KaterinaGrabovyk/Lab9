@@ -11,21 +11,20 @@ namespace Lab9.DB
 {
     public class MainModel : BindableBase
     {
-        private readonly PlantDBContext db;
+        private readonly RestService db;
 
 
         public MainModel()
         {
-            db = new PlantDBContext();
-            db.Database.EnsureDeleted();
-            db.Database.EnsureCreated();
-            db.Plants.Load();
+            db = new RestService();
+
 
             ReloadPlants();
         }
-        private void ReloadPlants()
+
+        private async void ReloadPlants()
         {
-            var items = db.Plants.Local.ToList();
+            var items = await db.GetPlantsAsync();
             var result = items;
             if (IsSorted)
             {
@@ -146,18 +145,16 @@ namespace Lab9.DB
             set => SetProperty(ref _newDobrivaNeeds, value);
         }
 
-        public void SaveNewPlant()
+        public async void SaveNewPlant()
         {
-            db.Add(new Plant
+            await db.CreatePlantAsync(new Plant
             {
-                PlantKind=NewPlantKind,
-                UmoviZrost=NewUmiviZrost,
-                PeriodCvit=NewPeriodZvit,
-                WaterNeeds=NewWaterNeeds,
-                DobrivaNeeds=NewDobrivaNeeds
-
+                PlantKind = NewPlantKind,
+                UmoviZrost = NewUmiviZrost,
+                PeriodCvit = NewPeriodZvit,
+                WaterNeeds = NewWaterNeeds,
+                DobrivaNeeds = NewDobrivaNeeds
             });
-            db.SaveChanges();
             ReloadPlants();
             ClearNewPlant();
         }
